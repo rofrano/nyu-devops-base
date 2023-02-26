@@ -2,12 +2,12 @@
 	"name": "NYU DevOps",
 	"image": "rofrano/nyu-devops-base:sp23",
 	"customizations": {
-		"extensions": [
-			"VisualStudioExptTeam.vscodeintellicode",
-			"ms-python.python",
-			"ms-python.pylint",
-			"ms-python.vscode-pylance"
-		]
-	},
-
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.pylint"
+			]
+		}
+	}
 }
