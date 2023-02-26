@@ -4,23 +4,42 @@ This repository contains the base Docker image to create a consistent lab enviro
 
 For more information see the article [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
-This image contains the following packages on top of `python:3.9-slim`:
+## Image contents
 
-- sudo
-- vim
-- make
-- git
-- zip
-- tree
-- curl
-- wget
-- jq
-- procps
-- net-tools
-- gcc
-- libpq-dev
+This image contains the following packages on top of python:3.9-slim: `sudo`, `vim`, `make`, `git`, `zip`, `tree`, `curl`, `wget`, `jq`, `procps`, `net-tools`, `gcc`, `libpq-dev`
 
 It also defines the user `vscode` which is needed for VSCode `features` to work properly. The `vscode` user has password-less `sudo` privileges. This teaches developers to not develop as `root` even when in a containerized environment.
+
+## Usage
+
+You can use this image with this starter `devcontainer.json` file:
+
+```json
+{
+	"name": "NYU DevOps",
+	"image": "rofrano/nyu-devops-base:sp23"
+}
+```
+
+This will create a Python 3.9 environment with all of the afore mentioned tools installed. The name will be **NYU DevOps** but you can change it to anything you'd like.
+
+Feel free to add VSCode extensions that you want every developer to have:
+
+```json
+{
+	"name": "NYU DevOps",
+	"image": "rofrano/nyu-devops-base:sp23",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.pylint"
+			]
+		}
+	}
+}
+```
 
 ## Build instructions
 
