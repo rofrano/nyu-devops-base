@@ -32,7 +32,8 @@ clean:	## Removes all dangling build cache
 init: export DOCKER_BUILDKIT=1
 init:	## Creates the buildx instance
 	$(info Initializing Builder...)
-	docker buildx create --use --name=qemu
+	-docker buildx create --name=qemu
+	docker buildx use qemu 
 	docker buildx inspect --bootstrap
 
 .PHONY: build
