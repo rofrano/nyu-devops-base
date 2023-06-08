@@ -7,7 +7,7 @@
 # These can be overidden with env vars.
 REGISTRY ?= rofrano
 IMAGE_NAME ?= nyu-devops-base
-IMAGE_TAG ?= sp23
+IMAGE_TAG ?= su23
 IMAGE ?= $(REGISTRY)/$(IMAGE_NAME):$(IMAGE_TAG)
 PLATFORM ?= "linux/amd64,linux/arm64"
 
@@ -16,7 +16,7 @@ PLATFORM ?= "linux/amd64,linux/arm64"
 
 DOCKER_BUILDKIT = 1
 
-all: build
+all: init build
 
 ## help:	Lists help on the commands
 .PHONY: help
