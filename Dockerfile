@@ -23,7 +23,7 @@ RUN groupadd --gid $USER_GID $USERNAME && \
 
 # Set up the Python development environment
 WORKDIR /app
-RUN python -m pip install --upgrade pip wheel
+RUN python -m pip install --upgrade pip wheel poetry
 
 ENV PORT 8080
 EXPOSE $PORT
