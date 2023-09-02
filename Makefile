@@ -7,7 +7,7 @@
 # These can be overidden with env vars.
 REGISTRY ?= rofrano
 IMAGE_NAME ?= nyu-devops-base
-IMAGE_TAG ?= su23
+IMAGE_TAG ?= fa23
 IMAGE ?= $(REGISTRY)/$(IMAGE_NAME):$(IMAGE_TAG)
 PLATFORM ?= "linux/amd64,linux/arm64"
 
