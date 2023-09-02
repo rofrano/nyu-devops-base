@@ -6,7 +6,7 @@ For more information see the article [Developing inside a Container](https://cod
 
 ## Image contents
 
-This image contains the following packages on top of python:3.9-slim: `sudo`, `vim`, `make`, `git`, `zip`, `tree`, `curl`, `wget`, `jq`, `procps`, `net-tools`, `gcc`, `libpq-dev`
+This image contains the following packages on top of python:3.11-slim: `sudo`, `vim`, `make`, `git`, `zip`, `tree`, `curl`, `wget`, `jq`, `procps`, `net-tools`, `gcc`, `libpq-dev`
 
 It also defines the user `vscode` which is needed for VSCode `features` to work properly. The `vscode` user has password-less `sudo` privileges. This teaches developers to not develop as `root` even when in a containerized environment.
 
@@ -17,18 +17,18 @@ You can use this image with this starter `devcontainer.json` file:
 ```json
 {
 	"name": "NYU DevOps",
-	"image": "rofrano/nyu-devops-base:sp23"
+	"image": "rofrano/nyu-devops-base:fa23"
 }
 ```
 
-This will create a Python 3.9 environment with all of the afore mentioned tools installed. The name will be **NYU DevOps** but you can change it to anything you'd like.
+This will create a Python 3.11 environment with all of the afore mentioned tools installed. The name will be **NYU DevOps** but you can change it to anything you'd like.
 
 Feel free to add VSCode extensions that you want every developer to have:
 
 ```json
 {
 	"name": "NYU DevOps",
-	"image": "rofrano/nyu-devops-base:sp23",
+	"image": "rofrano/nyu-devops-base:fa23",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -67,8 +67,8 @@ That will tag the Docker image as `my-account/nyu-devops-base/sp3` and push it t
 
 ## License
 
-Copyright (c) John Rofrano. All rights reserved.
+Copyright (c) 2020, 2023 [John Rofrano](https://www.linkedin.com/in/JohnRofrano/). All rights reserved.
 
-Licensed under the Apache License. See LICENSE
+Licensed under the Apache 2.0 License. See LICENSE
 
 This repo is part of the NYU graduate division class: **CSCI-GA.2820-001 DevOps and Agile Methodologies** conceived, created and taught by John Rofrano
