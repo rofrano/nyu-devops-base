@@ -6,7 +6,7 @@ For more information see the article [Developing inside a Container](https://cod
 
 ## Image contents
 
-This image contains the following packages on top of python:3.11-slim: `sudo`, `vim`, `make`, `git`, `zip`, `tree`, `curl`, `wget`, `jq`, `procps`, `net-tools`, `gcc`, `libpq-dev`
+This image contains the following packages on top of python:3.11-slim: `sudo`, `vim`, `make`, `git`, `zip`, `tree`, `curl`, `wget`, `jq`, `procps`, `net-tools`
 
 It also defines the user `vscode` which is needed for VSCode `features` to work properly. The `vscode` user has password-less `sudo` privileges. This teaches developers to not develop as `root` even when in a containerized environment.
 
@@ -17,7 +17,7 @@ You can use this image with this starter `devcontainer.json` file:
 ```json
 {
 	"name": "NYU DevOps",
-	"image": "rofrano/nyu-devops-base:fa23"
+	"image": "rofrano/nyu-devops-base:latest"
 }
 ```
 
@@ -28,7 +28,7 @@ Feel free to add VSCode extensions that you want every developer to have:
 ```json
 {
 	"name": "NYU DevOps",
-	"image": "rofrano/nyu-devops-base:fa23",
+	"image": "rofrano/nyu-devops-base:latest",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -63,7 +63,7 @@ export REGISTRY='my-account'
 make build
 ```
 
-That will tag the Docker image as `my-account/nyu-devops-base/sp3` and push it to Docker hub.
+That will tag the Docker image as `my-account/nyu-devops-base:latest` and push it to Docker hub.
 
 ## License
 

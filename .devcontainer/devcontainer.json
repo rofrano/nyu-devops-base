@@ -1,6 +1,6 @@
 {
 	"name": "NYU DevOps",
-	"image": "rofrano/nyu-devops-base:fa23",
+	"image": "rofrano/nyu-devops-base:sp24",
 	"customizations": {
 		"vscode": {
 			"extensions": [
