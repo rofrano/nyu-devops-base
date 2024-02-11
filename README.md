@@ -1,5 +1,7 @@
 # NYU DevOps Base Image
 
+[![Docker Repository on Quay](https://quay.io/repository/rofrano/nyu-devops-base/status "Docker Repository on Quay")](https://quay.io/repository/rofrano/nyu-devops-base)
+
 This repository contains the base Docker image to create a consistent lab environment for the **NYU DevOps and Agile Methodologies CSCI-GA.2820-001** graduate class. It is intended to be used as a base image with [Visual Studio Code](https://code.visualstudio.com) along with the [Dev Container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 
 For more information see the article [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
@@ -65,10 +67,19 @@ make build
 
 That will tag the Docker image as `my-account/nyu-devops-base:latest` and push it to Docker hub.
 
+If you use a different registry, just include that in the `REGISTRY` environment variable like this:
+
+```bash
+export REGISTRY='quay.io/my-account'
+make build
+```
+
+That will tag the image as `quay.io/my-account/nyu-devops-base:latest` and push it to the Red Hat [Quay.io](https://quay.io/) registry.
+
 ## License
 
-Copyright (c) 2020, 2023 [John Rofrano](https://www.linkedin.com/in/JohnRofrano/). All rights reserved.
+Copyright (c) 2020, 2024 [John Rofrano](https://www.linkedin.com/in/JohnRofrano/). All rights reserved.
 
 Licensed under the Apache 2.0 License. See LICENSE
 
-This repo is part of the NYU graduate division class: **CSCI-GA.2820-001 DevOps and Agile Methodologies** conceived, created and taught by John Rofrano
+This repo is part of the NYU graduate division class: **CSCI-GA.2820-001 DevOps and Agile Methodologies** conceived, created and taught by [John Rofrano](https://cs.nyu.edu/~rofrano/)
