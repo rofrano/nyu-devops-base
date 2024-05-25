@@ -33,4 +33,3 @@ ENV TERM=xterm-256color
 
 # Become a regular user for development
 USER $USERNAME
-
