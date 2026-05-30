@@ -7,7 +7,7 @@
 # These can be overidden with env vars.
 REGISTRY ?= rofrano
 IMAGE_NAME ?= nyu-devops-base
-IMAGE_TAG ?= sp26
+IMAGE_TAG ?= su26
 IMAGE ?= $(REGISTRY)/$(IMAGE_NAME):$(IMAGE_TAG)
 PLATFORM ?= "linux/amd64,linux/arm64"
 
@@ -16,12 +16,16 @@ PLATFORM ?= "linux/amd64,linux/arm64"
 
 DOCKER_BUILDKIT = 1
 
-all: init build
+.SILENT:
 
-## help:	Lists help on the commands
 .PHONY: help
-help: Makefile
-	@sed -ne '/@sed/!s/## //p' $(MAKEFILE_LIST)
+help: ## Display this help.
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_0-9-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+
+.PHONY: all
+all: help
+
+##@ Development
 
 .PHONY: clean
 clean:	## Removes all dangling build cache
@@ -40,6 +44,8 @@ init:	## Creates the buildx instance
 build:	## Build all of the project Docker images
 	$(info Building $(IMAGE) for $(PLATFORM)...)
 	docker buildx build --pull --platform=$(PLATFORM) --tag $(IMAGE) --push .
+
+##@ Runtime
 
 .PHONY: run
 run:	## Run a vagrant VM using this image
