@@ -5,7 +5,7 @@
 FROM python:3.12-slim
 
 # Add any tools that are needed beyond Python 3.12
-RUN apt-get update && apt-get upgrade && \
+RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y sudo vim git build-essential zip tree curl wget gpg gh jq procps net-tools iputils-ping && \
     apt-get autoremove -y && \
     apt-get clean -y
