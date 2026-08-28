@@ -28,6 +28,10 @@ WORKDIR /app
 RUN python -m pip install --upgrade pip wheel uv pipenv poetry && \
     poetry config virtualenvs.create false
 
+# Keep virtual environments inside project folder
+ENV PIPENV_VENV_IN_PROJECT=1
+
+# Declare our public port
 ENV PORT=8080
 EXPOSE $PORT
 
