@@ -8,7 +8,7 @@ For more information see the article [Developing inside a Container](https://cod
 
 ## Image contents
 
-This image contains the following packages on top of python:3.11-slim: `sudo`, `vim`, `make`, `git`, `zip`, `tree`, `curl`, `wget`, `jq`, `procps`, `net-tools`, `iputils-ping`.
+This image contains the following packages on top of python:3.11-slim: `sudo`, `vim`, `make`, `git`, `zip`, `tree`, `curl`, `wget`, `gpg`, `gh`, `jq`, `procps`, `net-tools`, `iputils-ping`.
 
 It also defines the user `vscode` which is needed for VSCode `features` to work properly. The `vscode` user has password-less `sudo` privileges. This teaches developers to not develop as `root` even when in a containerized environment.
 
@@ -23,7 +23,7 @@ You can use this image with this starter `devcontainer.json` file:
 }
 ```
 
-This will create a Python 3.11 environment with all of the afore mentioned tools installed. The name will be **NYU DevOps** but you can change it to anything you'd like.
+This will create a Python 3.12 environment with all of the afore mentioned tools installed. The name will be **NYU DevOps** but you can change it to anything you'd like.
 
 Feel free to add VSCode extensions that you want every developer to have:
 
@@ -78,7 +78,7 @@ That will tag the image as `quay.io/my-account/nyu-devops-base:latest` and push 
 
 ## License
 
-Copyright (c) 2020, 2025 [John Rofrano](https://www.linkedin.com/in/JohnRofrano/). All rights reserved.
+Copyright (c) 2020, 2026 [John Rofrano](https://www.linkedin.com/in/JohnRofrano/). All rights reserved.
 
 Licensed under the Apache 2.0 License. See LICENSE
 

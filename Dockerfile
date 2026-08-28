@@ -1,9 +1,12 @@
+##################################################
 # Image for a Python 3 development environment
+##################################################
+# CSpell: disable
 FROM python:3.12-slim
 
-# Add any tools that are needed beyond Python 3.11
-RUN apt-get update && \
-    apt-get install -y sudo vim git build-essential zip tree curl wget jq procps net-tools iputils-ping && \
+# Add any tools that are needed beyond Python 3.12
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y sudo vim git build-essential zip tree curl wget gpg gh jq procps net-tools iputils-ping && \
     apt-get autoremove -y && \
     apt-get clean -y
 
@@ -22,9 +25,13 @@ RUN groupadd --gid $USER_GID $USERNAME && \
 
 # Set up the Python development environment
 WORKDIR /app
-RUN python -m pip install --upgrade pip wheel pipenv poetry && \
+RUN python -m pip install --upgrade pip wheel uv pipenv poetry && \
     poetry config virtualenvs.create false
 
+# Keep virtual environments inside project folder
+ENV PIPENV_VENV_IN_PROJECT=1
+
+# Declare our public port
 ENV PORT=8080
 EXPOSE $PORT
 
